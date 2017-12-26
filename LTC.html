@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html style="width:100vw;height:100vh" lang="en-US">
+<html style="width:100vw;height:100vh" lang="zh-TW">
 <head>
 <meta name="description" content="Real-Time Cryptocurrency Market Charts by using Tradingview's widgets." />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Bitcoin BTC|ETH|XMR|IOTA Price Monitor</title>
+<title>比特幣 BTC|ETH|XMR|IOTA 匯率走勢、即時K線圖</title>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110965571-1"></script>
@@ -78,6 +78,7 @@ width: 2.9%;
   
 }
 
+
 </style>
 </head>
 
@@ -110,8 +111,8 @@ setInterval(function() {
 </script>
 
  <div style="top:15px;right:0px;position:absolute;color:white;font-size:15px;text-align:right;">
-● <a href="" target="_self" style="color:white;">en-US</a></br><a href="/zh-tw.html" target="_self" style="color:white;">zh-TW</a></br></br>
-● <a href="" target="_self" style="color:white;">toBTC</a></br><a href="/tousd.html" target="_self" style="color:white;">toUSD</a>
+<a href="/tousd.html" target="_self" style="color:white;">en-US</a></br>● <a href="" target="_self" style="color:white;">zh-TW</a>
+</br></br><a href="/zh-tw.html" target="_self" style="color:white;">toBTC</a></br>● <a href="" target="_self" style="color:white;">toUSD</a>
 </div>
 <div class="minebutton" style="top:120px;right:0px;position:absolute;font-size:12px;">
 <center><p id="ths"></p></br>
@@ -126,7 +127,6 @@ setInterval(function() {
 <font size="5"><strong>Monero</strong></font> : 4AwgijdxAeYQTgRdQLEPPDYcjHSh7QaH617BoF5ec7kYi7HvTJseAKi1WGvk3WB39iGsMKJikmchT5AwS9BAyrLX2DCPaPs
 </div>
  
- 
   <div class="content">
     <div class="left" align="left" style="height:49vh">
       <!-- TradingView Widget BEGIN -->
@@ -136,21 +136,21 @@ setInterval(function() {
            "autosize": true,
            "symbol": "BITFINEX:BTCUSD",
            "interval": "60",
-           "timezone": "Etc/UTC",
+           "timezone": "Asia/Taipei",
+           "locale": "zh_TW",
            "theme": "Dark",
-		     "hide_side_toolbar": false,
            "style": "1",
-           "locale": "en",
   		   "toolbar_bg": "rgba(66, 66, 66, 1)",
            "enable_publishing": false,
            "allow_symbol_change": false,
            "save_image": false,
+		     "hide_side_toolbar": false,
            "details": true,
- "studies": [
+		      "studies": [
     "MACD@tv-basicstudies"
   ],
+    
            "hideideas": true
-		  
            });
      </script>
      <!-- TradingView Widget END -->
@@ -160,7 +160,7 @@ setInterval(function() {
      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
      {
       "showChart": true,
-      "locale": "en",
+     "locale": "zh_TW",
       "width": "100%",
   "height": "100%",
   "plotLineColorGrowing": "rgba(60, 188, 152, 1)",
@@ -225,22 +225,20 @@ setInterval(function() {
 <script type="text/javascript">
 new TradingView.widget({
   "autosize": true,
-  "symbol": "BITFINEX:ETHBTC",
+  "symbol": "BITFINEX:ETHUSD",
   "interval": "60",
-  "timezone": "Etc/UTC",
+  "timezone": "Asia/Taipei",
+  "locale": "zh_TW",
   "theme": "Dark",
   "style": "1",
-  "locale": "en",
   "toolbar_bg": "rgba(66, 66, 66, 1)",
   "enable_publishing": false,
-
-  "save_image": false,
-  "details": true,
-  "hideideas": true,
-
    "studies": [
     "MACD@tv-basicstudies"
   ],
+  "save_image": false,
+  "details": true,
+  "hideideas": true
 });
 </script>
 <!-- TradingView Widget END -->
@@ -256,20 +254,19 @@ new TradingView.widget({
 <script type="text/javascript">
 new TradingView.widget({
   "autosize": true,
-  "symbol": "BITFINEX:XMRBTC",
+  "symbol": "BITFINEX:XMRUSD",
   "interval": "60",
-  "timezone": "Etc/UTC",
+  "timezone": "Asia/Taipei",
+"locale": "zh_TW",
   "theme": "Dark",
   "style": "1",
-  "locale": "en",
   "toolbar_bg": "rgba(66, 66, 66, 1)",
   "enable_publishing": false,
 
   "save_image": false,
-
   "details": true,
   "hideideas": true,
-   "studies": [
+     "studies": [
     "MACD@tv-basicstudies"
   ],
 });
@@ -283,22 +280,21 @@ new TradingView.widget({
 <script type="text/javascript">
 new TradingView.widget({
   "autosize": true,
-  "symbol": "BITFINEX:IOTBTC",
+  "symbol": "BITFINEX:LTCUSD",
   "interval": "60",
-  "timezone": "Etc/UTC",
+"timezone": "Asia/Taipei",
+"locale": "zh_TW",
   "theme": "Dark",
   "style": "1",
-  "locale": "en",
   "toolbar_bg": "rgba(66, 66, 66, 1)",
   "enable_publishing": false,
 
   "save_image": false,
   "details": true,
-  "hideideas": true,
-
-   "studies": [
+     "studies": [
     "MACD@tv-basicstudies"
   ],
+  "hideideas": true
 });
 </script>
 <!-- TradingView Widget END -->

